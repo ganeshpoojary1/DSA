@@ -8,14 +8,7 @@ class Solution {
       for(String k:word2){
         sb2.append(k);
       }
-      String str1=sb.toString();
-      String str2=sb2.toString();
-      if(str1.equals(str2)){
-        return true;
-      }
-      else{
-        return false;
-      }
+      return sb.toString().equals(sb2.toString());
         
     }
 }
