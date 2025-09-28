@@ -6,7 +6,7 @@ class Solution {
             sb.append(val);
         }
         String num = sb.toString();
-        while (k-- > 0 && num.length() > 1) {
+        while (k-- > 0) {
             int sum = 0;
             for (char ch : num.toCharArray()) {
                 sum += ch - '0';
