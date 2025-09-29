@@ -1,13 +1,13 @@
 class Solution {
     public char findTheDifference(String s, String t) {
-        int sumS=0;
-        for(char c:s.toCharArray()){
-          sumS+=c;
-        }
-        int sumT=0;
-        for(char c:t.toCharArray()){
-            sumT+=c;
-        }
-        return (char)(sumT-sumS);
+       int[] freq=new int[26];
+       for(char c:s.toCharArray()){
+        freq[c-'a']++;
+       }
+       for(char c:t.toCharArray()){
+        freq[c-'a']--;
+        if(freq[c-'a']<0)return c;
     }
+    return ' ';
+}
 }
