@@ -1,26 +1,27 @@
 class Solution {
     public boolean isValid(String s) {
-        LinkedList<Character> l = new LinkedList<>();
-        for(char x:s.toCharArray()){
-            if(x=='(' || x=='{' || x=='['){
-                l.addLast(x);
-            }
-            else if( l.size()!=0 && x==')' && l.peekLast()=='('){
-                l.removeLast();
-            }
-            else if( l.size()!=0 && x=='}' && l.peekLast()=='{'){
-                l.removeLast();
-            }
-            else if(l.size()!=0 && x==']' && l.peekLast()=='['){
-                l.removeLast();
-            }
-            else{
-                return false;
-            }
+       LinkedList<Character> l=new LinkedList<>();
+       char[] x=s.toCharArray();
+       for(char i:x){
+        if(i=='(' || i=='{' || i=='['){
+            l.addLast(i);
         }
-        if(l.size()!=0){
+        else if(l.size()!=0 && i==')' && l.peekLast()=='('){
+            l.removeLast();
+        }
+        else if(l.size()!=0 && i=='}' && l.peekLast()=='{'){
+            l.removeLast();
+        }
+        else if(l.size()!=0 && i==']' && l.peekLast()=='['){
+            l.removeLast();
+        }
+        else{
             return false;
         }
-        return true;
+       }
+       if(l.size()!=0){
+        return false;
+       }
+       return true;
     }
 }
