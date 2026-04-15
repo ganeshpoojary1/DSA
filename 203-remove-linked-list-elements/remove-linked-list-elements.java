@@ -12,20 +12,27 @@ class Solution {
     public ListNode removeElements(ListNode head, int val) {
         ArrayList<Integer> a = new ArrayList<>();
         while(head!=null){
-            a.add(head.val);
+            if(head.val!=val){
+                a.add(head.val);
+            }
             head=head.next;
         }
-        
-        a.removeIf(x -> x == val);
-        
-        ListNode dummy = new ListNode(0);
-        ListNode temp=dummy;
+        ListNode root = null;
+        head=null;
 
-        for(int i:a){
-            temp.next=new ListNode(i);
-            temp=temp.next;
+        for(int i : a){
+            ListNode temp = new ListNode(i);
+
+            if(root==null){
+                root=temp;
+                head=temp;
+            }
+            else{
+                root.next=temp;
+                root=root.next;
+            }
         }
-        return dummy.next;
+        return head;
         
     }
 }
