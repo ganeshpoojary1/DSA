@@ -20,11 +20,7 @@ class Solution {
 
         int k=n/2;
 
-        for(int i=0;i<=a.size()-1;i++){
-            if(i==k){
-                a.remove(i);
-            }
-        }
+        a.remove(k);
 
         ListNode dummy = new ListNode();
         ListNode temp = dummy;
