@@ -1,24 +1,14 @@
 class Solution {
     public boolean isSubsequence(String s, String t) {
-        char[] arr=s.toCharArray();
-        char[] arr1=t.toCharArray();
-
-        int k=0;
-        for(int i=0;i<arr.length;i++){
-            boolean found=false;
-
-            for(int j=k;j<arr1.length;j++){
-                if(arr[i]==arr1[j]){
-                    found=true;
-                    k=j+1;
-                    break;
-                }
+        int i=0;
+        int j=0;
+        while(i<s.length() && j<t.length()){
+            if(s.charAt(i)==t.charAt(j)){
+                i++;
             }
-            if(!found){
-                return false;
-            }
-
+            j++;
         }
-        return true;
+        return i==s.length();
+        
     }
 }
