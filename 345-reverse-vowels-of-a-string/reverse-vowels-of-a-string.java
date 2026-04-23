@@ -7,14 +7,13 @@ class Solution {
         int end=ch.length-1;
 
         while(start<end){
-            while(start<end && vowels.indexOf(ch[start])==-1){
+            while(start < end && vowels.indexOf(ch[start])==-1 ){
                 start++;
             }
-
             while(start<end && vowels.indexOf(ch[end])==-1){
                 end--;
             }
-            char temp=ch[start];
+            char temp = ch[start];
             ch[start]=ch[end];
             ch[end]=temp;
             start++;
