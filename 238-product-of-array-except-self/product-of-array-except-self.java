@@ -4,14 +4,11 @@ class Solution {
         int leftProduct[] = new int[nums.length];
         int rightProduct[]=new int[nums.length];
 
-
-        int temp=1;
-        for(int i=0; i < nums.length;i++){
+        for(int i=0,temp=1; i < nums.length;i++){
             leftProduct[i]=temp;
             temp=temp*nums[i];
         }
-        temp=1;
-        for(int i=nums.length-1;i>=0;i--){
+        for(int i=nums.length-1,temp=1;i>=0;i--){
             rightProduct[i]=temp;
             temp=temp*nums[i];
         }
