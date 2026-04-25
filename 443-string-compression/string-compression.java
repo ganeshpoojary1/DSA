@@ -1,24 +1,27 @@
 class Solution {
     public int compress(char[] chars) {
-        int n=chars.length;
         int index=0;
-        int i=0;
-        while(i<n){
-            char currentChar=chars[i];
-            int count=0;
-            while(i<n&&chars[i]==currentChar){
-                count++;
-                i++;
+        int start=0;
+
+        while(start<chars.length){
+            int end=start;
+
+            while(end<chars.length && chars[start]==chars[end]){
+                end++;
             }
-            chars[index++]=currentChar;
-            if(count>1){
-                String countStr=String.valueOf(count);
-                for(char c:countStr.toCharArray()){
-                    chars[index++]=c;
+          
+
+            int count=end-start;
+            chars[index++]=chars[start];
+
+            if(count>=2){
+                char[] freq=Integer.toString(count).toCharArray();
+                for(char ch: freq){
+                    chars[index++]=ch;
                 }
             }
+            start=end;
         }
         return index;
-        
     }
 }
