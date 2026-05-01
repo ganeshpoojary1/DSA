@@ -1,27 +1,23 @@
 class Solution {
     public boolean isValid(String s) {
-       LinkedList<Character> l=new LinkedList<>();
-       char[] x=s.toCharArray();
-       for(char i:x){
+      Stack<Character> st = new Stack<>();
+      for(char i : s.toCharArray()){
         if(i=='(' || i=='{' || i=='['){
-            l.addLast(i);
+            st.push(i);
         }
-        else if(l.size()!=0 && i==')' && l.peekLast()=='('){
-            l.removeLast();
+        else if(!st.isEmpty() && i==')'&& st.peek()=='('){
+            st.pop();
         }
-        else if(l.size()!=0 && i=='}' && l.peekLast()=='{'){
-            l.removeLast();
+        else if(!st.isEmpty() && i=='}' && st.peek()=='{'){
+            st.pop();
         }
-        else if(l.size()!=0 && i==']' && l.peekLast()=='['){
-            l.removeLast();
+        else if(!st.isEmpty() && i==']' && st.peek()=='['){
+            st.pop();
         }
-        else{
+        else {
             return false;
         }
-       }
-       if(l.size()!=0){
-        return false;
-       }
-       return true;
+      }  
+      return st.isEmpty();
     }
 }
