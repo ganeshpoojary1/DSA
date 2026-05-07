@@ -2,35 +2,42 @@ class Solution {
     public boolean checkInclusion(String s1, String s2) {
         int n = s1.length();
         int m = s2.length();
-        if (m < n) return false;
-
-        int map1[] = new int[26];
-        int map2[] = new int[26];
-
-        for (int i = 0; i < n; i++) {
-            map1[s1.charAt(i) - 'a']++;
-            map2[s2.charAt(i) - 'a']++;
+        if(m<n){
+            return false;
         }
 
-        if (isMatched(map1, map2)) {
-            return true;
+        HashMap<Character,Integer> map1 = new HashMap<>();
+        HashMap<Character,Integer> map2 = new HashMap<>();
+        for(char i:s1.toCharArray()){
+            if(map1.containsKey(i)){
+                map1.put(i,map1.get(i)+1);
+            }
+            else{
+                map1.put(i,1);
+            }
         }
+        int left=0;
+        for(int right=0;right<s2.length();right++){
+            char r = s2.charAt(right);
+            if(map2.containsKey(r)){
+                map2.put(r,map2.get(r)+1);
+            }
+            else{
+                map2.put(r,1);
+            }
 
-        for (int i = n; i < m; i++) {
-            map2[s2.charAt(i) - 'a']++;
-            map2[s2.charAt(i - n) - 'a']--;
-            if (isMatched(map1, map2)) {
+            if(right-left+1 > n){
+                char l = s2.charAt(left);
+                map2.put(l,map2.get(l)-1);
+                if(map2.get(l)==0){
+                    map2.remove(l);
+                }
+                left++;
+            }
+            if(map1.equals(map2)){
                 return true;
             }
         }
-
         return false;
-    }
-
-    private boolean isMatched(int map1[], int map2[]) {
-        for (int i = 0; i < 26; i++) {
-            if (map1[i] != map2[i]) return false;
-        }
-        return true;
     }
 }
