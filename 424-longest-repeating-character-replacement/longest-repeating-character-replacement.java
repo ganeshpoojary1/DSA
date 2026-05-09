@@ -14,7 +14,7 @@ class Solution {
             }
             maxfreq=Math.max(maxfreq,map.get(ch));
 
-            while((right-left + 1)-maxfreq > k){
+            if((right-left + 1)-maxfreq > k){
                 char l = s.charAt(left);
                 map.put(l,map.get(l)-1);
                 left++;
