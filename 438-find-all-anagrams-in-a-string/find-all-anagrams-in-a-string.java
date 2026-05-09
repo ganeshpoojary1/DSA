@@ -25,9 +25,9 @@ class Solution {
             if((right-left+1)>p.length()){
                 map2.put(l,map2.get(l)-1);
                 left++;
-            }
-            if(map2.get(l)==0){
+                  if(map2.get(l)==0){
                 map2.remove(l);
+            }
             }
             if(map1.equals(map2)){
               list.add(left);
