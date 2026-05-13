@@ -4,7 +4,7 @@ class MinStack {
 
     public MinStack() {
         stack=new Stack<>();
-        minStack = new Stack<>();
+        minStack=new Stack<>();
     }
     
     public void push(int val) {
@@ -20,7 +20,7 @@ class MinStack {
     }
     
     public int top() {
-        return stack.peek();
+        return stack.peek(); 
     }
     
     public int getMin() {
