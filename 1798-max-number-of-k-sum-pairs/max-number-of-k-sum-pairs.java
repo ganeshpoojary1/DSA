@@ -6,18 +6,18 @@ class Solution {
         int count=0;
 
         while(left<right){
-            if (nums[left]+nums[right] < k){
+            if(nums[left]+nums[right] < k){
                 left++;
             }
-            else if (nums[left]+nums[right] > k){
+            else if(nums[left]+nums[right] > k){
                 right--;
             }
             else{
                 count++;
                 left++;
                 right--;
-            }        
             }
-            return count;
-        } 
+        }
+        return count;
     }
+}
