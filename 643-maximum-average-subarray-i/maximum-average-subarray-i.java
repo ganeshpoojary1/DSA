@@ -11,7 +11,6 @@ class Solution {
             sum-=nums[j-k];
             max=Math.max(max,sum);
         }
-        max=max/k;
-        return max; 
+        return max/k; 
     }
 }
