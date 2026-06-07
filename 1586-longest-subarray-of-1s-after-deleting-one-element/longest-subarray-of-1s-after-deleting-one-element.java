@@ -3,8 +3,8 @@ class Solution {
         int start=0;
         int zeroCount=0;
         int max=0;
-        for(int end=0;end<nums.length;end++){
-            if(nums[end]==0){
+        for(int i=0;i<nums.length;i++){
+            if(nums[i]==0){
                 zeroCount++;
             }
             while(zeroCount > 1){
@@ -13,7 +13,7 @@ class Solution {
                 }
                 start++;
             }
-            max=Math.max(max,end-start);
+            max=Math.max(max,i-start);
         }
         return max;
     }
