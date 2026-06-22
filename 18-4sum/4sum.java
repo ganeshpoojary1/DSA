@@ -3,9 +3,9 @@ class Solution {
         Arrays.sort(nums);
         Set<List<Integer>> h = new HashSet<>();
         int i=0;
-        while(i<nums.length-3){
+        while(i<nums.length-1){
             int j=i+1;
-            while(j<nums.length-2){
+            while(j<nums.length-1){
                 int k=j+1;
                 int l=nums.length-1;
                 while(k<l){
