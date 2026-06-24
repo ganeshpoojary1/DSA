@@ -8,14 +8,13 @@ class Solution {
             if(nums[mid]==target){
                 return mid;
             }
-                else if(target>nums[mid]){
-                    i=mid+1;
-                }
-                else{
-                    j=mid-1;
-                }
-                    
-                }
-            return -1;
+            else if(nums[mid]<target){
+                i=mid+1;
+            }
+            else{
+                j=mid-1;
+            }
         }
+        return -1;
     }
+}
