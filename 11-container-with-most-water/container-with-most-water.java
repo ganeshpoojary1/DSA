@@ -4,17 +4,15 @@ class Solution {
         int right=height.length-1;
         int sum=0;
         int max=0;
-        int width=0;
-        while(left!=right){
+        while(left<right){
             int mini = Math.min(height[left],height[right]);
-            width=right-left;
-            sum = mini*width;
+            sum=mini*(right-left);
             if(height[left]<height[right]){
                 left++;
             }
             else{
                 right--;
-            } 
+            }
             max=Math.max(max,sum);
         }
         return max;
