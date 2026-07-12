@@ -3,19 +3,19 @@ class Solution {
         if(k<=1){
             return 0;
         }
-        int start=0;int end=0;
-        int prod=1;
+        int left=0;
+        int right=0;
         int count=0;
-        while(end<nums.length){
-            prod=prod*nums[end];
-            while(prod>=k){
-                prod=prod/nums[start];
-                start++;
+        int product=1;
+        while(right<nums.length){
+            product=product*nums[right];
+            while(product>=k){
+                product=product/nums[left];
+                left++;
             }
-            count=count+(end-start+1);
-            end++;
+            count=count+(right-left)+1;
+            right++;
         }
         return count;
-        
     }
 }
