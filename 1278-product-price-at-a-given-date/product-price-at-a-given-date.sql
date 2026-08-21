@@ -8,10 +8,11 @@ WHERE (product_id,change_date) IN(
     GROUP BY product_id
 )
 UNION
-SELECT product_id,10 AS price
+SELECT product_id, 10 AS price
 FROM Products
 WHERE product_id NOT IN(
     SELECT product_id
     FROM Products
     WHERE change_date<='2019-08-16'
-)
+) 
+
